@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import { buttonVariants } from '@/components/ui/button';
-import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
-import { ArrowDown, ArrowRight, Download } from 'lucide-react';
 import BrainImg from '@/components/BrainImg.astro';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+import { buttonVariants } from '@/components/ui/button';
+import LinkBtn from '@/components/ui/link-arrow';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 
 const pageTitle = 'Home';
 ---
@@ -27,18 +28,13 @@ const pageTitle = 'Home';
           </p>
         </div>
         <div class="flex flex-col gap-2 min-[400px]:flex-row">
-          <a
+          <LinkBtn
             href="/portfolio/"
-            class:list={[
-              'group',
-              buttonVariants({ variant: 'default', size: 'lg' }),
-            ]}>
-            <span class="text-background">My Portfolio</span>
-            <ArrowRight
-              size={20}
-              className="ml-3 text-background transition-transform duration-300 group-hover:translate-x-3"
-            />
-          </a>
+            variant="default"
+            size="lg"
+            arrowPosition="right">
+            My Portfolio
+          </LinkBtn>
           <a
             href="#"
             class:list={[
@@ -57,94 +53,4 @@ const pageTitle = 'Home';
       </div>
     </MaxWidthWrapper>
   </section>
-  <!-- <section class="w-full bg-gray-100 py-12 dark:bg-gray-800 md:py-24 lg:py-32">
-    <MaxWidthWrapper>
-      <div
-        class="flex flex-col items-center justify-center space-y-4 text-center">
-        <div class="space-y-2">
-          <div
-            class="inline-block rounded-lg bg-gray-100 px-3 py-1 text-sm dark:bg-gray-800">
-            Key Data Available
-          </div>
-          <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Unlock Valuable Insights
-          </h2>
-          <p
-            class="max-w-[900px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            Our SaaS platform provides access to up-to-date data on people,
-            including their recent addresses and contact information, to help
-            you make informed business decisions.
-          </p>
-        </div>
-      </div>
-      <div
-        class="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-        <img
-          src="https://media.istockphoto.com/id/1342229191/pl/zdj%C4%99cie/jezioro-w-kszta%C5%82cie-kontynent%C3%B3w-%C5%9Bwiata-w-%C5%9Brodku-nietkni%C4%99tej-przyrody-metafora-podr%C3%B3%C5%BCy.jpg?s=612x612&w=0&k=20&c=emDmyqjmzfA0plI5MdsbEYKYUdvc8s8fJQPFef4CW_Q="
-          alt="Data Insights"
-          class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-        />
-        <div class="flex flex-col justify-center space-y-4">
-          <ul class="grid gap-6">
-            <li>
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">Recent Addresses</h3>
-                <p class="text-gray-500 dark:text-gray-400">
-                  Access up-to-date information on people's recent addresses.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">Contact Information</h3>
-                <p class="text-gray-500 dark:text-gray-400">
-                  Obtain accurate and current contact details for your target
-                  audience.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="grid gap-1">
-                <h3 class="text-xl font-bold">Comprehensive Data</h3>
-                <p class="text-gray-500 dark:text-gray-400">
-                  Leverage our extensive database to make informed business
-                  decisions.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </MaxWidthWrapper>
-  </section>
-  <section class="w-full border-t py-12 md:py-24 lg:py-32">
-    <MaxWidthWrapper className="grid place-items-center text-center">
-      <div class="space-y-3">
-        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-          Unlock the Power of Data
-        </h2>
-        <p
-          class="mx-auto max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-          Sign up for our SaaS platform and start leveraging up-to-date data on
-          people to make informed business decisions.
-        </p>
-      </div>
-      <div class="mx-auto w-full max-w-sm space-y-2">
-        <form class="flex gap-2">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            className="max-w-lg flex-1"
-          />
-          <Button type="submit">Sign Up</Button>
-        </form>
-        <p class="text-xs text-gray-500 dark:text-gray-400">
-          Sign up to get started.
-          <a href="#" class="underline underline-offset-2">
-            Terms &amp; Conditions
-          </a>
-        </p>
-      </div>
-    </MaxWidthWrapper>
-  </section> -->
 </Layout>

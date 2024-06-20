@@ -1,4 +1,3 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper.astro";
 import { Card, CardHeader } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,6 +8,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { projects } from "@/data/projects";
+import { createPathName } from "@/lib/utils";
 
 export const Projects = () => {
   return (
@@ -20,10 +20,10 @@ export const Projects = () => {
     >
       <CarouselPrevious className="hidden md:flex" />
       <CarouselContent className="flex items-center lg:p-2">
-        {Object.values(projects).map(({ title, img, pathUrl }) => (
+        {Object.values(projects).map(({ title, img }) => (
           <CarouselItem key={title} className="group md:basis-1/2 lg:basis-1/3">
             <Card className="cursor-pointer overflow-hidden transition-transform duration-1000 lg:group-hover:rotate-2">
-              <a href={`/portfolio${pathUrl}`}>
+              <a href={`/portfolio/${createPathName(title)}`}>
                 <img
                   src={img}
                   alt={`${title} image`}

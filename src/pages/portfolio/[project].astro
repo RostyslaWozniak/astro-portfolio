@@ -1,0 +1,25 @@
+---
+import { projects } from '@/data/projects';
+import ProjectLayout from '@/layouts/ProjectLayout.astro';
+import { createPathName } from '@/lib/utils';
+
+export function getStaticPaths() {
+  const projectsTitles = Object.values(projects).map(({ title }) => title);
+
+  return projectsTitles.map((title) => {
+    return { params: { project: createPathName(title) } };
+  });
+}
+
+const { project } = Astro.params;
+const projectResult = Object.values(projects).find(
+  ({ title }) => createPathName(title) === project
+);
+---
+
+<ProjectLayout
+  title={projectResult?.title}
+  img={projectResult?.img}
+  description={projectResult?.description}
+  demoUrl={projectResult?.demoUrl}
+/>

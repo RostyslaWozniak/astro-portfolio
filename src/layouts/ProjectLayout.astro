@@ -1,14 +1,20 @@
 ---
+import { buttonVariants } from '@/components/ui/button';
 import Layout from './Layout.astro';
 
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import LinkBtn from '@/components/ui/link-arrow';
 
 const { title, description, demoUrl, img } = Astro.props;
 ---
 
 <Layout title={title} description={description}>
   <section class="w-full md:py-24 lg:py-32">
-    <MaxWidthWrapper>
+    <MaxWidthWrapper className="relative">
+      <LinkBtn href="/portfolio/" variant="link" arrowPosition="left">
+        go back
+      </LinkBtn>
       <div
         class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
         <div class="flex flex-col justify-center space-y-4">
@@ -21,7 +27,14 @@ const { title, description, demoUrl, img } = Astro.props;
               class="0 max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               {description}
             </p>
-            <a href={demoUrl}>see demo</a>
+            <LinkBtn
+              href={demoUrl}
+              variant="outline"
+              size="lg"
+              arrowPosition="right"
+              target="_blank">
+              See Demo
+            </LinkBtn>
           </div>
         </div>
         <img
@@ -30,7 +43,7 @@ const { title, description, demoUrl, img } = Astro.props;
           width="550"
           height="310"
           alt="About"
-          class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
+          class="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-top shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
         />
       </div>
     </MaxWidthWrapper>

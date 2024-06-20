@@ -2,15 +2,13 @@ export const projects = {
   dataViz: {
     title: "data visualization",
     img: "/imgs/data-visualization.jpg",
-    pathUrl: "/data-viz",
     demoUrl: "https://data-viz-pi.vercel.app/",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
+      "This project is designed for business professionals, educators, and data enthusiasts. It simplifies the process of turning data into beautiful, insightful charts with just a few clicks. Users can upload Excel files and create interactive, customizable visualizations effortlessly.",
   },
   swojeSciany: {
     title: "swoje ściany",
     img: "/imgs/swoje-sciany.jpg",
-    pathUrl: "/swoje-sciany",
     demoUrl: "https://swojesciany.pl/",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
@@ -18,23 +16,20 @@ export const projects = {
   pestControl: {
     title: "pest control",
     img: "/imgs/pest-control.jpg",
-    pathUrl: "/pest-control",
     demoUrl: "https://pest-control-demo.vercel.app/",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
   },
   lawer: {
-    title: "lawer",
-    img: "/imgs/lawer.jpg",
-    pathUrl: "/lawer",
+    title: "lawyer",
+    img: "/imgs/lawyer.jpg",
     demoUrl: "https://project-lawyer.vercel.app/",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
   },
   fitness: {
-    title: "fitness",
+    title: "fitCurves",
     img: "/imgs/fitness.jpg",
-    pathUrl: "/fitness",
     demoUrl: "https://rostik-test-website.000webhostapp.com/",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
