@@ -1,0 +1,41 @@
+---
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+import Layout from '@/layouts/Layout.astro';
+import { Projects } from './components/Projects.tsx';
+import BrainImg from '@/components/BrainImg.astro';
+
+const pageTitle = 'Portfolio';
+---
+
+<Layout title={pageTitle} description={`${pageTitle} page`}>
+  <div class="flex w-full flex-col justify-start">
+    <section class="w-full py-12">
+      <MaxWidthWrapper>
+        <div
+          class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_300px]">
+          <div class="flex flex-col justify-center space-y-4">
+            <div class="space-y-2">
+              <h1
+                class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                My Portfolio
+              </h1>
+              <p class="max-w-[800px] text-foreground md:text-xl">
+                Welcome to my portfolio, where I present a collection of web
+                projects I have designed and implemented. Each project is
+                bringing creativity, functionality, and a passion for delivering
+                exceptional digital experiences. You can also check out my
+                websites on GitHub. Enjoy!
+              </p>
+            </div>
+          </div>
+          <BrainImg />
+        </div>
+      </MaxWidthWrapper>
+    </section>
+    <section class="flex min-h-[300px] items-center px-0">
+      <MaxWidthWrapper>
+        <Projects client:only />
+      </MaxWidthWrapper>
+    </section>
+  </div></Layout
+>

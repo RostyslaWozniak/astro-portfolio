@@ -1,0 +1,38 @@
+---
+import Layout from './Layout.astro';
+
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+
+const { title, description, demoUrl, img } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <section class="w-full md:py-24 lg:py-32">
+    <MaxWidthWrapper>
+      <div
+        class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+        <div class="flex flex-col justify-center space-y-4">
+          <div class="space-y-2">
+            <h1
+              class="text-3xl font-bold capitalize tracking-tighter sm:text-5xl">
+              {title}
+            </h1>
+            <p
+              class="0 max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              {description}
+            </p>
+            <a href={demoUrl}>see demo</a>
+          </div>
+        </div>
+        <img
+          transition:name={title}
+          src={img}
+          width="550"
+          height="310"
+          alt="About"
+          class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
+        />
+      </div>
+    </MaxWidthWrapper>
+  </section>
+</Layout>

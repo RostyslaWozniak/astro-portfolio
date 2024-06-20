@@ -1,0 +1,78 @@
+/** @format */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* keep white as background */
+    --foreground: 192 16% 25%; /* use dark grey for foreground */
+
+    --card: 0 0% 100%; /* keep white for card */
+    --card-foreground: 192 16% 25%; /* use dark grey for card foreground */
+
+    --popover: 0 0% 100%; /* keep white for popover */
+    --popover-foreground: 192 16% 25%; /* use dark grey for popover foreground */
+
+    --primary: 171 23% 71%; /* use light teal for primary */
+    --primary-foreground: 0 0% 100%; /* keep white for primary foreground */
+
+    --secondary: 194 24% 90%; /* use very light blue for secondary */
+    --secondary-foreground: 192 16% 25%; /* use dark grey for secondary foreground */
+
+    --muted: 194 24% 90%; /* use very light blue for muted */
+    --muted-foreground: 171 23% 71%; /* use light teal for muted foreground */
+
+    --accent: 194 24% 90%; /* use very light blue for accent */
+    --accent-foreground: 192 16% 25%; /* use dark grey for accent foreground */
+
+    --destructive: 0 84.2% 60.2%; /* keep red for destructive */
+    --destructive-foreground: 0 0% 100%; /* keep white for destructive foreground */
+
+    --border: 194 24% 90%; /* use very light blue for border */
+    --input: 194 24% 90%; /* use very light blue for input */
+    --ring: 192 16% 25%; /* use dark grey for ring */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 192 16% 25%; /* use dark grey as background */
+    --foreground: 0 0% 100%; /* keep white as foreground */
+
+    --card: 192 16% 25%; /* use dark grey for card */
+    --card-foreground: 0 0% 100%; /* keep white for card foreground */
+
+    --popover: 192 16% 25%; /* use dark grey for popover */
+    --popover-foreground: 0 0% 100%; /* keep white for popover foreground */
+
+    --primary: 0 0% 100%; /* keep white for primary */
+    --primary-foreground: 171 23% 71%; /* use light teal for primary foreground */
+
+    --secondary: 171 23% 71%; /* use light teal for secondary */
+    --secondary-foreground: 0 0% 100%; /* keep white for secondary foreground */
+
+    --muted: 171 23% 71%; /* use light teal for muted */
+    --muted-foreground: 194 24% 90%; /* use very light blue for muted foreground */
+
+    --accent: 171 23% 71%; /* use light teal for accent */
+    --accent-foreground: 0 0% 100%; /* keep white for accent foreground */
+
+    --destructive: 0 62.8% 30.6%; /* keep dark red for destructive */
+    --destructive-foreground: 0 0% 100%; /* keep white for destructive foreground */
+
+    --border: 171 23% 71%; /* use light teal for border */
+    --input: 171 23% 71%; /* use light teal for input */
+    --ring: 194 24% 90%; /* use very light blue for ring */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,30 @@
+---
+import BrainImg from '@/components/BrainImg.astro';
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '@/components/form/ContactForm.astro';
+
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+const pageTitle = 'Contact';
+---
+
+<Layout title={pageTitle} description={`${pageTitle} page`}>
+  <section class="w-full">
+    <MaxWidthWrapper className="grid grid-cols-[1fr_800px] items-center">
+      <div class="container space-y-4 px-4 md:px-6">
+        <div
+          class="flex flex-col items-center justify-center space-y-2 text-center">
+          <h2 class="text-3xl font-bold tracking-tighter sm:text-5xl">
+            Get in Touch
+          </h2>
+          <p class="max-w-[600px] text-muted-foreground lg:text-lg">
+            Are You Interested In Collaboration?<br /> Let's Get In Touch!
+          </p>
+        </div>
+        <div class="mx-auto w-full max-w-md space-y-4">
+          <ContactForm />
+        </div>
+      </div>
+      <BrainImg />
+    </MaxWidthWrapper>
+  </section>
+</Layout>
