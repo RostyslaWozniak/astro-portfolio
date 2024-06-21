@@ -5,9 +5,10 @@ import { Github, Linkedin } from 'lucide-react';
 import { ModeToggle } from '@/components/ModeToggle';
 const pages = [
   { name: 'home', path: '/' },
-  { name: 'about', path: '/about' },
-  { name: 'portfolio', path: '/portfolio' },
-  { name: 'contact', path: '/contact' },
+  { name: 'about', path: '/about/' },
+  { name: 'portfolio', path: '/portfolio/' },
+  { name: 'blog', path: '/blog/' },
+  { name: 'contact', path: '/contact/' },
 ];
 ---
 
@@ -15,7 +16,7 @@ const pages = [
   class="fixed inset-x-0 top-0 z-50 w-screen bg-popover bg-slate-100 shadow-sm dark:bg-slate-800">
   <MaxWidthWrapper>
     <div class="flex h-14 items-center justify-between">
-      <a href="/" class="flex items-center"> MyLogo </a>
+      <a href="/" class="flex items-center font-serif text-3xl"> RW</a>
       <nav>
         <ul class="hidden gap-4 md:flex">
           {
@@ -27,7 +28,8 @@ const pages = [
                     'flex items-center text-sm font-medium capitalize transition-colors',
                     {
                       'border-b-2 border-foreground':
-                        Astro.url.pathname === path,
+                        Astro.url.pathname.replace(/\/$/, '') ===
+                        path.replace(/\/$/, ''),
                     },
                   ]}>
                   {name}
