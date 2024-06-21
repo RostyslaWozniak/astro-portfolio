@@ -9,24 +9,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
-type TThemes = "light" | "dark" | "system";
-const themes: TThemes[] = ["light", "dark", "system"];
+type TTheme = "light" | "dark" | "system";
+const themes: TTheme[] = ["light", "dark", "system"];
 
 export function ModeToggle() {
-  const [theme, setThemeState] = React.useState<TThemes>("dark");
-  const hadleChangeTheme = (theme: TThemes) => {
-    localStorage.setItem("theme", theme);
-    setThemeState(theme);
-  };
+  const [theme, setThemeState] = useState<TTheme>("system");
 
-  React.useEffect(() => {
-    // const isDarkMode = document.documentElement.classList.contains("dark");
-    const activeTheme = localStorage.getItem("theme") || "system";
-    setThemeState(activeTheme as TThemes);
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains("dark");
+    setThemeState(isDarkMode ? "dark" : "light");
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const isDark =
       theme === "dark" ||
       (theme === "system" &&
@@ -37,20 +33,19 @@ export function ModeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
+        <Button variant="ghost" size="icon">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        {themes.map((themeName) => (
+        {themes.map((t) => (
           <DropdownMenuItem
-            key={themeName}
-            onClick={() => hadleChangeTheme(themeName)}
-            className={cn({ border: themeName === theme })}
+            onClick={() => setThemeState(t)}
+            className={cn({ border: theme === t })}
           >
-            {themeName}
+            {t}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
