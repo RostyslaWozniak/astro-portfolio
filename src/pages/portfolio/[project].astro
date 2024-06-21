@@ -1,7 +1,10 @@
 ---
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+import LinkBtn from '@/components/ui/link-arrow';
 import { projects } from '@/data/projects';
 import ProjectLayout from '@/layouts/ProjectLayout.astro';
 import { createPathName } from '@/lib/utils';
+import Layout from '@/layouts/Layout.astro';
 
 export function getStaticPaths() {
   const projectsTitles = Object.values(projects).map(({ title }) => title);
@@ -15,11 +18,47 @@ const { project } = Astro.params;
 const projectResult = Object.values(projects).find(
   ({ title }) => createPathName(title) === project
 );
+if (!projectResult) return Astro.redirect('/');
+const { title, description, demoUrl, img } = projectResult;
 ---
 
-<ProjectLayout
-  title={projectResult?.title}
-  img={projectResult?.img}
-  description={projectResult?.description}
-  demoUrl={projectResult?.demoUrl}
-/>
+<Layout title={title} description={projectResult?.description}>
+  <section class="w-full md:py-24 lg:py-32">
+    <MaxWidthWrapper className="relative">
+      <LinkBtn href="/portfolio/" variant="link" arrowPosition="left">
+        go back
+      </LinkBtn>
+      <div
+        class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
+        <div class="flex flex-col justify-center space-y-4">
+          <div class="space-y-2">
+            <h1
+              class="text-3xl font-bold capitalize tracking-tighter sm:text-5xl">
+              {title}
+            </h1>
+            <p
+              class="0 max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              {description}
+            </p>
+            <LinkBtn
+              href={demoUrl}
+              variant="outline"
+              size="lg"
+              arrowPosition="right"
+              target="_blank">
+              See Demo
+            </LinkBtn>
+          </div>
+        </div>
+        <img
+          transition:name={title}
+          src={img}
+          width="550"
+          height="310"
+          alt="About"
+          class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
+        />
+      </div>
+    </MaxWidthWrapper>
+  </section>
+</Layout>
