@@ -1,9 +1,36 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+// import { posts } from '@/data/posts';
+import PostCard from '@/components/PostCard.astro';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
+import BrainImg from '@/components/BrainImg.astro';
 
 const pageTitle = 'Blog';
 ---
 
 <Layout title={pageTitle} description={`${pageTitle} page`}>
-  <h1>{pageTitle}</h1>
+  <div class="flex w-full flex-col justify-start">
+    <section class="w-full py-12">
+      <MaxWidthWrapper className="flex items-center justify-around">
+        <div class="flex flex-col justify-center space-y-4">
+          <div class="space-y-2">
+            <h1
+              class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+              My {pageTitle}
+            </h1>
+          </div>
+        </div>
+        <div class="aspect-square w-[300px]">
+          <BrainImg />
+        </div>
+      </MaxWidthWrapper>
+    </section>
+    <section class="flex min-h-[300px] items-center p-1">
+      <MaxWidthWrapper>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- {posts.map((post) => <PostCard post={post} />)} -->
+        </div>
+      </MaxWidthWrapper>
+    </section>
+  </div>
 </Layout>

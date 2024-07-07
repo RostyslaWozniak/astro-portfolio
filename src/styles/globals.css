@@ -76,3 +76,57 @@
     @apply bg-background text-foreground;
   }
 }
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+/* LEFT SLIDE ANIMATION */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.3s ease-out;
+}
+/* RIGHT SLIDE ANIMATION */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+/* PROJECTS SLIDE ANIMATION */
+
+@keyframes slide {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(-137%);
+  }
+}
+/* stop animation on hover */
+.project:hover .animate-slide {
+  animation-play-state: paused;
+}
+
+.animate-slide {
+  animation: slide 25s linear infinite;
+}

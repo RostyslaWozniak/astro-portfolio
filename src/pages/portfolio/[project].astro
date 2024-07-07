@@ -2,20 +2,21 @@
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import LinkBtn from '@/components/ui/link-arrow';
 import { projects } from '@/data/projects';
-import { createPathName } from '@/lib/utils';
+import { sluglify } from '@/lib/slugify';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export function getStaticPaths() {
   const projectsTitles = Object.values(projects).map(({ title }) => title);
 
   return projectsTitles.map((title) => {
-    return { params: { project: createPathName(title) } };
+    return { params: { project: sluglify(title) } };
   });
 }
 
 const { project } = Astro.params;
 const projectResult = Object.values(projects).find(
-  ({ title }) => createPathName(title) === project
+  ({ title }) => sluglify(title) === project
 );
 if (!projectResult) return Astro.redirect('/');
 const { title, description, demoUrl, img } = projectResult;
@@ -29,7 +30,7 @@ const { title, description, demoUrl, img } = projectResult;
       </LinkBtn>
       <div
         class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-        <div class="flex flex-col justify-center space-y-4">
+        <div class="slide-in-left flex flex-col justify-center space-y-4">
           <div class="space-y-2">
             <h1
               class="text-3xl font-bold capitalize tracking-tighter sm:text-5xl">
@@ -49,13 +50,13 @@ const { title, description, demoUrl, img } = projectResult;
             </LinkBtn>
           </div>
         </div>
-        <img
+        <Image
           transition:name={title}
           src={img}
           width="550"
           height="310"
           alt="About"
-          class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
+          class="slide-in-right mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-lg dark:shadow-slate-50 sm:w-full lg:order-last"
         />
       </div>
     </MaxWidthWrapper>

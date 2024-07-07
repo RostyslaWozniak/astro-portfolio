@@ -7,7 +7,7 @@ const pages = [
   { name: 'home', path: '/' },
   { name: 'about', path: '/about/' },
   { name: 'portfolio', path: '/portfolio/' },
-  { name: 'blog', path: '/blog/' },
+  // { name: 'blog', path: '/blog/' },
   { name: 'contact', path: '/contact/' },
 ];
 ---
@@ -40,18 +40,7 @@ const pages = [
         </ul>
       </nav>
       <div class="flex items-center gap-4">
-        <a href="https://www.linkedin.com/in/rostyslav-vozniak" target="_blank">
-          <Linkedin className="cursor-pointer hover:animate-pulse" />
-        </a>
-        <a href="https://github.com/RostyslaWozniak" target="_blank">
-          <Github
-            className="cursor-pointer hover:animate-pulse"
-            target="_blank"
-          />
-        </a>
-        <div transition:name="theme">
-          <ModeToggle client:load />
-        </div>
+        <ModeToggle client:load />
       </div>
     </div>
   </MaxWidthWrapper>
