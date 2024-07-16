@@ -1,8 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import { doubleProjects } from '@/data/projects';
-import MaxWidthWrapper from './MaxWidthWrapper.astro';
-import { Card, CardHeader } from './ui/card';
 import { sluglify } from '@/lib/slugify';
 ---
 
@@ -15,8 +13,8 @@ import { sluglify } from '@/lib/slugify';
     <div class="animate-slide flex w-full justify-center gap-5">
       {
         doubleProjects.map(({ title, img }) => (
-          <Card
-            className=" group cursor-pointer overflow-hidden transition-transform duration-1000 lg:hover:rotate-2 min-w-[350px]"
+          <div
+            class="group min-w-[350px] cursor-pointer overflow-hidden rounded-xl border transition-transform duration-1000 lg:hover:rotate-2"
             id={sluglify(title)}>
             <a href={`/portfolio/${sluglify(title)}`}>
               <Image
@@ -27,13 +25,11 @@ import { sluglify } from '@/lib/slugify';
                 class="aspect-video h-[180px] w-full object-cover object-top duration-300 group-hover:scale-110 group-hover:opacity-70 lg:group-hover:rotate-2"
               />
 
-              <CardHeader className="flex flex-col items-start">
-                <h3 class="text-lg font-semibold capitalize tracking-tight">
-                  {title}
-                </h3>
-              </CardHeader>
+              <h3 class="bg-card/50 px-3 py-2 text-lg font-semibold capitalize tracking-tight">
+                {title}
+              </h3>
             </a>
-          </Card>
+          </div>
         ))
       }
     </div>

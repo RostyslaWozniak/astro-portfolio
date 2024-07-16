@@ -55,8 +55,14 @@ const { description, title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="flex min-h-screen flex-col overflow-hidden">
+  <body class="flex min-h-screen flex-col overflow-x-hidden">
     <Header />
     <main class="flex h-full flex-1 flex-col items-center justify-center">
       <slot />

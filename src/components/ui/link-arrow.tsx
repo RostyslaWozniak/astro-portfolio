@@ -33,9 +33,7 @@ export default function LinkBtn({
     <a
       href={href}
       target={target}
-      className={cn("group", buttonVariants({ variant, size }), {
-        "!text-background": variant === "default",
-      })}
+      className={cn("group border", buttonVariants({ variant, size }))}
     >
       {arrowPosition === "left" && (
         <span className="mr-2 transition-transform duration-300 group-hover:-translate-x-2">

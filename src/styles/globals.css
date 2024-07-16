@@ -6,65 +6,48 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* keep white as background */
-    --foreground: 192 16% 25%; /* use dark grey for foreground */
-
-    --card: 0 0% 100%; /* keep white for card */
-    --card-foreground: 192 16% 25%; /* use dark grey for card foreground */
-
-    --popover: 0 0% 100%; /* keep white for popover */
-    --popover-foreground: 192 16% 25%; /* use dark grey for popover foreground */
-
-    --primary: 171 23% 71%; /* use light teal for primary */
-    --primary-foreground: 0 0% 100%; /* keep white for primary foreground */
-
-    --secondary: 194 24% 90%; /* use very light blue for secondary */
-    --secondary-foreground: 192 16% 25%; /* use dark grey for secondary foreground */
-
-    --muted: 194 24% 90%; /* use very light blue for muted */
-    --muted-foreground: 171 23% 71%; /* use light teal for muted foreground */
-
-    --accent: 194 24% 90%; /* use very light blue for accent */
-    --accent-foreground: 192 16% 25%; /* use dark grey for accent foreground */
-
-    --destructive: 0 84.2% 60.2%; /* keep red for destructive */
-    --destructive-foreground: 0 0% 100%; /* keep white for destructive foreground */
-
-    --border: 194 24% 90%; /* use very light blue for border */
-    --input: 194 24% 90%; /* use very light blue for input */
-    --ring: 192 16% 25%; /* use dark grey for ring */
-
+    --background: 176 100% 100%;
+    --foreground: 176, 20%, 40%;
+    --card: 178, 49%, 95%;
+    --card-foreground: 177, 20%, 20%;
+    --popover: 192, 16%, 35%;
+    --popover-foreground: 176 100% 100%;
+    --primary: 176, 20%, 40%;
+    --primary-foreground: 0, 0%, 100%;
+    --secondary: 176 30% 90%;
+    --secondary-foreground: 176, 20%, 40%;
+    --muted: 138 30% 95%;
+    --muted-foreground: 176 5% 40%;
+    --accent: 176, 20%, 40%;
+    --accent-foreground: 178, 49%, 10%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 176 5% 100%;
+    --border: 176 30% 82%;
+    --input: 176 30% 50%;
+    --ring: 176 23% 71%;
     --radius: 0.5rem;
   }
-
   .dark {
-    --background: 192 16% 25%; /* use dark grey as background */
-    --foreground: 0 0% 100%; /* keep white as foreground */
-
-    --card: 192 16% 25%; /* use dark grey for card */
-    --card-foreground: 0 0% 100%; /* keep white for card foreground */
-
-    --popover: 192 16% 25%; /* use dark grey for popover */
-    --popover-foreground: 0 0% 100%; /* keep white for popover foreground */
-
-    --primary: 0 0% 100%; /* keep white for primary */
-    --primary-foreground: 171 23% 71%; /* use light teal for primary foreground */
-
-    --secondary: 171 23% 71%; /* use light teal for secondary */
-    --secondary-foreground: 0 0% 100%; /* keep white for secondary foreground */
-
-    --muted: 171 23% 71%; /* use light teal for muted */
-    --muted-foreground: 194 24% 90%; /* use very light blue for muted foreground */
-
-    --accent: 171 23% 71%; /* use light teal for accent */
-    --accent-foreground: 0 0% 100%; /* keep white for accent foreground */
-
-    --destructive: 0 62.8% 30.6%; /* keep dark red for destructive */
-    --destructive-foreground: 0 0% 100%; /* keep white for destructive foreground */
-
-    --border: 171 23% 71%; /* use light teal for border */
-    --input: 171 23% 71%; /* use light teal for input */
-    --ring: 194 24% 90%; /* use very light blue for ring */
+    --background: 176 20% 20%;
+    --foreground: 178, 49%, 95%;
+    --card: 178, 49%, 10%;
+    --card-foreground: 178, 49%, 95%;
+    --popover: 176 50% 5%;
+    --popover-foreground: 176 5% 100%;
+    --primary: 0, 0%, 100%;
+    --primary-foreground: 178, 49%, 95%;
+    --secondary: 178, 49%, 95%;
+    --secondary-foreground: 176 20% 20%;
+    --muted: 138 30% 25%;
+    --muted-foreground: 176 5% 65%;
+    --accent: 178, 49%, 10%;
+    --accent-foreground: 176 5% 95%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 176 5% 100%;
+    --border: 176 30% 50%;
+    --input: 176 30% 50%;
+    --ring: 176 23% 71%;
+    --radius: 0.5rem;
   }
 }
 
@@ -75,6 +58,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+html {
+  font-family: "Quicksand", sans-serif;
 }
 
 .scrollbar-hidden {

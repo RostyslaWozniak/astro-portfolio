@@ -3,37 +3,33 @@ import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import Layout from '@/layouts/Layout.astro';
 import BrainImg from '@/components/BrainImg.astro';
 import ProjectsCarousel from '@/components/ProjectsCarousel.astro';
+import FaceImg from '@/components/face-img.astro';
 
 const pageTitle = 'Portfolio';
 ---
 
 <Layout title={pageTitle} description={`${pageTitle} page`}>
-  <div class="flex w-full flex-col justify-start">
-    <section class="w-full py-12">
-      <MaxWidthWrapper>
-        <div
-          class="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_300px]">
-          <div class="slide-in-left flex flex-col justify-center space-y-4">
-            <div class="space-y-2">
-              <h1
-                class="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                My {pageTitle}
-              </h1>
-              <p class="max-w-[800px] text-foreground md:text-xl">
-                Welcome to my portfolio, where I present a collection of web
-                projects I have designed and implemented. Each project is
-                bringing creativity, functionality, and a passion for delivering
-                exceptional digital experiences. You can also check out my
-                websites on GitHub. Enjoy!
-              </p>
-            </div>
-          </div>
-          <BrainImg />
-        </div>
-      </MaxWidthWrapper>
-    </section>
-    <section class="flex min-h-[350px] flex-col items-center p-1">
-      <ProjectsCarousel />
-    </section>
-  </div></Layout
->
+  <section class="w-full py-12">
+    <MaxWidthWrapper className="grid md:grid-cols-[1fr_300px]">
+      <div class="slide-in-left flex flex-col justify-center space-y-4">
+        <h1
+          class="text-4xl font-bold tracking-tighter text-primary sm:text-5xl xl:text-6xl">
+          My {pageTitle}
+        </h1>
+        <p class="max-w-[800px] text-foreground md:text-xl">
+          Welcome to my portfolio, where I present a collection of web projects
+          I have designed and implemented. Each project is bringing creativity,
+          functionality, and a passion for delivering exceptional digital
+          experiences. You can also check out my websites on GitHub. Enjoy!
+        </p>
+      </div>
+      <div class="hidden md:block">
+        <FaceImg />
+      </div>
+    </MaxWidthWrapper>
+  </section>
+  <section
+    class="flex min-h-[350px] w-screen flex-col items-center overflow-x-hidden p-1">
+    <ProjectsCarousel />
+  </section>
+</Layout>

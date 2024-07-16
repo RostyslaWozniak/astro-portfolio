@@ -1,10 +1,12 @@
 ---
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import { Linkedin, Github, Mail } from 'lucide-react';
+import { Subscription } from './form/Subscription';
 ---
 
-<footer class="w-full bg-primary py-6 dark:bg-slate-800">
-  <MaxWidthWrapper className="flex w-full items-center justify-between">
+<footer class="z-50 w-full bg-popover py-6 text-popover-foreground">
+  <MaxWidthWrapper
+    className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row">
     <div class="flex items-center justify-center gap-4">
       <a href="https://www.linkedin.com/in/rostyslav-vozniak" target="_blank">
         <Linkedin className="cursor-pointer hover:animate-pulse" />
@@ -16,8 +18,8 @@ import { Linkedin, Github, Mail } from 'lucide-react';
         <Mail className="cursor-pointer hover:animate-pulse" target="_blank" />
       </a>
     </div>
-    <p
-      class="text-center text-sm text-gray-500 dark:text-gray-400 md:text-right">
+
+    <p class="text-center text-sm md:text-right">
       &copy; {new Date().getFullYear()}. All rights reserved.
     </p>
   </MaxWidthWrapper>
