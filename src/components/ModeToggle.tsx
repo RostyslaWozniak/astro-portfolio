@@ -3,7 +3,6 @@ import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type TTheme = "light" | "dark" | "system";
-const themes: TTheme[] = ["light", "dark", "system"];
 
 export function ModeToggle() {
   const [theme, setThemeState] = useState<TTheme>("system");
