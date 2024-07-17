@@ -5,25 +5,42 @@ import { projects } from '@/data/projects';
 import { sluglify } from '@/lib/slugify';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import {
+  ArrowBigLeft,
+  ArrowBigRight,
+  ArrowLeft,
+  ArrowRight,
+} from 'lucide-react';
 
 export function getStaticPaths() {
-  const projectsTitles = Object.values(projects).map(({ title }) => title);
+  const projectsTitles = projects.map(({ title }) => title);
 
   return projectsTitles.map((title) => {
     return { params: { project: sluglify(title) } };
   });
 }
-
 const { project } = Astro.params;
-const projectResult = Object.values(projects).find(
+const projectIndex = projects.findIndex(
   ({ title }) => sluglify(title) === project
 );
-if (!projectResult) return Astro.redirect('/');
-const { title, description, demoUrl, img } = projectResult;
+
+if (!projects[projectIndex]) return Astro.redirect('/');
+const { title, description, demoUrl, img } = projects[projectIndex];
 ---
 
-<Layout title={title} description={projectResult?.description}>
+<Layout title={title} description={description}>
   <section class="w-full overflow-x-hidden py-5">
+    <a
+      href={sluglify(
+        projectIndex === 0
+          ? projects[projects.length - 1]?.title || ''
+          : projects[projectIndex - 1]?.title || ''
+      )}
+      class="fixed left-0 top-1/2 z-50 flex h-32 -translate-y-1/2 items-center rounded-r-full bg-foreground text-background opacity-50 duration-300 hover:opacity-100"
+      ><ArrowLeft /></a
+    >
     <MaxWidthWrapper className="relative space-y-5">
       <LinkBtn href="/portfolio/" variant="link" arrowPosition="left">
         go back
@@ -33,7 +50,7 @@ const { title, description, demoUrl, img } = projectResult;
         <div class="slide-in-left flex flex-col justify-center space-y-4">
           <div class="space-y-2">
             <h1
-              class="text-3xl font-bold capitalize tracking-tighter sm:text-5xl">
+              class="pl-5 text-3xl font-bold capitalize tracking-tighter sm:pl-0 sm:text-5xl">
               {title}
             </h1>
             <p
@@ -49,17 +66,28 @@ const { title, description, demoUrl, img } = projectResult;
             </LinkBtn>
           </div>
         </div>
-        <div class="slide-in-right">
+        <div class="slide-in-right order-first lg:order-last">
           <Image
             transition:name={title}
             src={img}
             width="550"
             height="310"
             alt="About"
-            class="order-first mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full lg:order-last"
+            class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full"
           />
         </div>
       </div>
     </MaxWidthWrapper>
+    <a
+      href={sluglify(
+        projectIndex === projects.length - 1
+          ? projects[0]?.title || ''
+          : projects[projectIndex + 1]?.title || ''
+      )}
+      class="fixed right-0 top-1/2 z-50 flex h-32 -translate-y-1/2 items-center rounded-l-full bg-foreground text-background opacity-50 duration-300 hover:opacity-100"
+      ><ArrowRight /></a
+    >
   </section>
 </Layout>
+
+<script></script>

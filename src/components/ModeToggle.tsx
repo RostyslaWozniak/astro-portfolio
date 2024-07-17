@@ -23,7 +23,7 @@ export function ModeToggle() {
   return (
     <Button
       variant="outline"
-      className="hover:bg-card"
+      className="h-8 w-8 hover:bg-card sm:h-9 sm:w-9"
       size="icon"
       onClick={() =>
         setThemeState((prev) => (prev === "dark" ? "light" : "dark"))

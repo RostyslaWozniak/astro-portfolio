@@ -31,23 +31,23 @@ export const Projects = () => {
               className={cn(
                 "relative -z-10 h-full w-full scale-90 rounded-xl object-cover object-center opacity-0 duration-500",
                 {
-                  "z-10 scale-100 opacity-80 group-hover:scale-[1.02] group-hover:opacity-100":
+                  "z-10 scale-100 opacity-80 group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:opacity-100":
                     id === activeId,
                 },
               )}
             />
           </a>
         ))}
-        <span className="absolute inset-0 rounded-xl bg-card opacity-0 duration-300 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:opacity-100" />
+        <span className="absolute inset-0 rounded-xl bg-card opacity-0 duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:opacity-100" />
       </div>
 
-      <div className="mx-auto flex w-[min(100%,400px)] flex-col gap-3">
+      <div className="mx-auto flex w-[min(100%,400px)] flex-col gap-1">
         {projects.map(({ title }, id) => (
           <a
             className={cn(
-              "flex w-full items-center gap-4 border-b-2 text-3xl font-bold capitalize duration-300",
+              "flex h-12 w-full items-center gap-4 border-b-2 text-3xl font-bold capitalize duration-500",
               {
-                "scale-110": id === activeId,
+                "scale-110 bg-card": id === activeId,
               },
             )}
             href={`/portfolio/${sluglify(title)}`}
@@ -56,11 +56,11 @@ export const Projects = () => {
           >
             <span
               className={cn(
-                "aspect-square w-3 scale-0 rounded-full bg-primary duration-300",
+                "ml-3 aspect-square w-3 scale-0 rounded-full bg-primary duration-300",
                 { "scale-100": id === activeId },
               )}
             />
-            {title}
+            <h2>{title}</h2>
           </a>
         ))}
       </div>
