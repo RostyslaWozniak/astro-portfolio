@@ -66,12 +66,12 @@ html {
 /* LEFT SLIDE ANIMATION */
 @keyframes slideInFromLeft {
   0% {
-    -webkit-transform: translateX(-100%);
-    -webkit-opacity: 0;
+    transform: translateX(-100%);
+    opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0);
-    -webkit-opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -81,12 +81,12 @@ html {
 /* RIGHT SLIDE ANIMATION */
 @keyframes slideInFromRight {
   0% {
-    -webkit-transform: translateX(100%);
-    -webkit-opacity: 0;
+    transform: translateX(100%);
+    opacity: 0;
   }
   100% {
-    -webkit-transform: translateX(0);
-    -webkit-opacity: 1;
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -98,10 +98,10 @@ html {
 
 @keyframes appear {
   from {
-    -webkit-opacity: 0;
+    opacity: 0;
   }
   to {
-    -webkit-opacity: 1;
+    opacity: 1;
   }
 }
 
