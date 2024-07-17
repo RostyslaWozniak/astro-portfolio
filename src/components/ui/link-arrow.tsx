@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface LinkBtnProps {
   children: React.ReactNode;
+  className?: string;
   href: string;
   arrowPosition?: "left" | "right";
   variant?:
@@ -21,6 +22,7 @@ interface LinkBtnProps {
 export default function LinkBtn({
   children,
   href,
+  className,
   arrowPosition = "right",
   variant = "default",
   size = "default",
@@ -37,6 +39,7 @@ export default function LinkBtn({
         "group border",
         buttonVariants({ variant, size }),
         baseClasses,
+        className,
       )}
     >
       {arrowPosition === "left" && (

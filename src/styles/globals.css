@@ -63,19 +63,15 @@ html {
   font-family: "Quicksand", sans-serif;
 }
 
-.scrollbar-hidden {
-  scrollbar-width: none;
-}
-
 /* LEFT SLIDE ANIMATION */
 @keyframes slideInFromLeft {
   0% {
-    transform: translateX(-100%);
-    opacity: 0;
+    -webkit-transform: translateX(-100%);
+    -webkit-opacity: 0;
   }
   100% {
-    transform: translateX(0);
-    opacity: 1;
+    -webkit-transform: translateX(0);
+    -webkit-opacity: 1;
   }
 }
 
@@ -85,12 +81,12 @@ html {
 /* RIGHT SLIDE ANIMATION */
 @keyframes slideInFromRight {
   0% {
-    transform: translateX(100%);
-    opacity: 0;
+    -webkit-transform: translateX(100%);
+    -webkit-opacity: 0;
   }
   100% {
-    transform: translateX(0);
-    opacity: 1;
+    -webkit-transform: translateX(0);
+    -webkit-opacity: 1;
   }
 }
 
@@ -102,32 +98,13 @@ html {
 
 @keyframes appear {
   from {
-    opacity: 0;
+    -webkit-opacity: 0;
   }
   to {
-    opacity: 1;
+    -webkit-opacity: 1;
   }
 }
 
 .animate-appear {
   animation: appear 1s linear;
-}
-
-/* PROJECTS SLIDE ANIMATION */
-
-@keyframes slide {
-  from {
-    transform: translateX(50%);
-  }
-  to {
-    transform: translateX(-137%);
-  }
-}
-/* stop animation on hover */
-.project:hover .animate-slide {
-  animation-play-state: paused;
-}
-
-.animate-slide {
-  animation: slide 25s linear infinite;
 }
