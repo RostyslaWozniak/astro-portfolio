@@ -5,14 +5,7 @@ import { projects } from '@/data/projects';
 import { sluglify } from '@/lib/slugify';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import { Button, buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import {
-  ArrowBigLeft,
-  ArrowBigRight,
-  ArrowLeft,
-  ArrowRight,
-} from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export function getStaticPaths() {
   const projectsTitles = projects.map(({ title }) => title);
