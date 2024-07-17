@@ -23,9 +23,9 @@ const { title, description, demoUrl, img } = projectResult;
 ---
 
 <Layout title={title} description={projectResult?.description}>
-  <section class="w-full md:py-24 lg:py-32">
-    <MaxWidthWrapper className="relative">
-      <LinkBtn href="/portfolio/" variant="ghost" arrowPosition="left">
+  <section class="w-full overflow-x-hidden py-5 lg:pt-32">
+    <MaxWidthWrapper className="relative space-y-3">
+      <LinkBtn href="/portfolio/" variant="link" arrowPosition="left">
         go back
       </LinkBtn>
       <div
@@ -42,7 +42,6 @@ const { title, description, demoUrl, img } = projectResult;
             </p>
             <LinkBtn
               href={demoUrl}
-              variant="outline"
               size="lg"
               arrowPosition="right"
               target="_blank">
@@ -56,7 +55,7 @@ const { title, description, demoUrl, img } = projectResult;
           width="550"
           height="310"
           alt="About"
-          class="slide-in-right mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full lg:order-last"
+          class="slide-in-right order-first mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full lg:order-last"
         />
       </div>
     </MaxWidthWrapper>

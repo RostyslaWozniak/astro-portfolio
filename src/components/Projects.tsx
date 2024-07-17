@@ -16,22 +16,36 @@ export const Projects = () => {
     }
   }, []);
   return (
-    <div className="flex w-full items-center justify-around">
-      <a
-        href={`/portfolio/${sluglify(projects[activeId || 0].title)}`}
-        className="hidden lg:block"
-      >
-        <img
-          src={projects[activeId || 0].previewImg}
-          alt="project image"
-          className="aspect-video h-[300px] rounded-xl object-cover object-center opacity-70 shadow-sm duration-300 hover:scale-[1.02] hover:opacity-100 hover:shadow-md"
-        />
-      </a>
-      <div className="flex flex-col gap-3">
+    <div className="grid pb-5 lg:grid-cols-[1fr_400px]">
+      <div className="group relative hidden aspect-video h-[300px] lg:block">
+        {projects.map(({ title, previewImg }, id) => (
+          <a
+            key={title}
+            href={`/portfolio/${sluglify(title)}`}
+            className="absolute inset-0 lg:block"
+          >
+            <img
+              key={previewImg}
+              src={previewImg}
+              alt="project image"
+              className={cn(
+                "relative -z-10 h-full w-full scale-90 rounded-xl object-cover object-center opacity-0 duration-500",
+                {
+                  "z-10 scale-100 opacity-80 group-hover:scale-[1.02] group-hover:opacity-100":
+                    id === activeId,
+                },
+              )}
+            />
+          </a>
+        ))}
+        <span className="absolute inset-0 rounded-xl bg-card opacity-0 duration-300 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:opacity-100" />
+      </div>
+
+      <div className="mx-auto flex w-[min(100%,400px)] flex-col gap-3">
         {projects.map(({ title }, id) => (
           <a
             className={cn(
-              "flex min-w-[300px] items-center gap-4 border-b-2 text-3xl font-bold capitalize duration-300",
+              "flex w-full items-center gap-4 border-b-2 text-3xl font-bold capitalize duration-300",
               {
                 "scale-110": id === activeId,
               },

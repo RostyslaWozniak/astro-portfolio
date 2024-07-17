@@ -1,8 +1,6 @@
 ---
 import FaceImg from '@/components/face-img.astro';
 import Layout from '../layouts/Layout.astro';
-
-import BrainImg from '@/components/BrainImg.astro';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import { buttonVariants } from '@/components/ui/button';
 import LinkBtn from '@/components/ui/link-arrow';
@@ -12,9 +10,8 @@ const pageTitle = 'Home';
 ---
 
 <Layout title={pageTitle} description={`${pageTitle} page`}>
-  <section class="flex w-full items-center justify-center">
-    <MaxWidthWrapper
-      className="grid lg:grid-cols-[350px_1fr] lg:gap-12 xl:grid-cols-[500px_1fr]">
+  <section class="flex w-full items-center justify-center overflow-x-hidden">
+    <MaxWidthWrapper className="grid pb-5 lg:grid-cols-[600px_1fr]">
       <FaceImg />
       <div
         class="slide-in-right flex flex-col items-center justify-center space-y-5 text-center lg:items-start lg:text-start">

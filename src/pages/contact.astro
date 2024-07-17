@@ -1,32 +1,31 @@
 ---
-import BrainImg from '@/components/BrainImg.astro';
 import Layout from '../layouts/Layout.astro';
-import ContactForm from '@/components/form/ContactForm.astro';
-
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import FaceImg from '@/components/face-img.astro';
+import Socials from '@/components/socials.astro';
 const pageTitle = 'Contact';
 ---
 
 <Layout title={pageTitle} description={`${pageTitle} page`}>
-  <section class="w-full">
-    <MaxWidthWrapper className="grid grid-cols-[1fr_800px] items-center">
-      <div class="slide-in-left container space-y-4 px-4 md:px-6">
+  <section class="w-full overflow-x-hidden">
+    <MaxWidthWrapper
+      className="grid place-items-center items-center lg:grid-cols-[500px_1fr] lg:px-32">
+      <FaceImg />
+
+      <div class="slide-in-right w-[min(400px,100%)] space-y-4 sm:w-[400px]">
         <div
           class="flex flex-col items-center justify-center space-y-2 text-center">
           <h1
             class="text-4xl font-bold tracking-tighter text-primary sm:text-5xl xl:text-6xl">
-            Get in Touch
+            Contact
           </h1>
-          <p class="max-w-[600px] text-muted-foreground lg:text-lg">
+          <p class="max-w-[600px] text-muted-foreground sm:text-xl">
             Are You Interested In Collaboration?<br /> Let's Get In Touch!
           </p>
         </div>
-        <div class="mx-auto w-full max-w-md space-y-4">
-          <ContactForm />
-        </div>
+
+        <Socials className="lg:scale-150" />
       </div>
-      <FaceImg />
     </MaxWidthWrapper>
   </section>
 </Layout>

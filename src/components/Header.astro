@@ -1,24 +1,20 @@
 ---
-import { Button } from '@/components/ui/button';
 import MaxWidthWrapper from './MaxWidthWrapper.astro';
-import { Github, Linkedin } from 'lucide-react';
 import { ModeToggle } from '@/components/ModeToggle';
 const pages = [
-  { name: 'home', path: '/' },
   { name: 'about', path: '/about/' },
   { name: 'portfolio', path: '/portfolio/' },
-  // { name: 'blog', path: '/blog/' },
   { name: 'contact', path: '/contact/' },
 ];
 ---
 
 <header
-  class="fixed inset-x-0 top-0 z-50 w-screen bg-card text-foreground shadow-sm">
+  class="sticky inset-x-0 top-0 z-50 w-screen bg-card text-foreground shadow-sm">
   <MaxWidthWrapper>
     <div class="flex h-14 items-center justify-between">
       <a href="/" class="flex items-center text-3xl font-semibold">RW</a>
       <nav>
-        <ul class="hidden gap-4 md:flex">
+        <ul class="flex gap-4">
           {
             pages.map(({ name, path }) => (
               <li>

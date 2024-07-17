@@ -8,7 +8,7 @@ export const projects = [
       "This project is designed for business professionals, educators, and data enthusiasts. It simplifies the process of turning data into beautiful, insightful charts with just a few clicks. Users can upload Excel files and create interactive, customizable visualizations effortlessly.",
   },
   {
-    title: "swoje ściany",
+    title: "swoje sciany",
     img: "/projects/demo/swoje-sciany.jpg",
     demoUrl: "https://swojesciany.pl/",
     previewImg: "/projects/preview/swoje-sciany-preview.jpg",

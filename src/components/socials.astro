@@ -1,0 +1,21 @@
+---
+import { Github, Linkedin, Mail } from 'lucide-react';
+
+export type Props = {
+  className?: string;
+};
+
+const { className } = Astro.props;
+---
+
+<div class:list={['flex items-center justify-center gap-4', className]}>
+  <a href="https://www.linkedin.com/in/rostyslav-vozniak" target="_blank">
+    <Linkedin className="cursor-pointer hover:animate-pulse" />
+  </a>
+  <a href="https://github.com/RostyslaWozniak" target="_blank">
+    <Github className="cursor-pointer hover:animate-pulse" />
+  </a>
+  <a href="mailto: rostyslav.vozniak.dev@gmail.com">
+    <Mail className="cursor-pointer hover:animate-pulse" target="_blank" />
+  </a>
+</div>
