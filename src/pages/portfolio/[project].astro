@@ -49,14 +49,16 @@ const { title, description, demoUrl, img } = projectResult;
             </LinkBtn>
           </div>
         </div>
-        <Image
-          transition:name={title}
-          src={img}
-          width="550"
-          height="310"
-          alt="About"
-          class="slide-in-right order-first mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full lg:order-last"
-        />
+        <div class="slide-in-right">
+          <Image
+            transition:name={title}
+            src={img}
+            width="550"
+            height="310"
+            alt="About"
+            class="order-first mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full lg:order-last"
+          />
+        </div>
       </div>
     </MaxWidthWrapper>
   </section>
