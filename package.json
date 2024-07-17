@@ -24,6 +24,7 @@
     "clsx": "^2.1.1",
     "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.1.5",
+    "framer-motion": "^11.3.4",
     "lucide-react": "^0.395.0",
     "nodemailer": "^6.9.13",
     "prettier-plugin-astro": "^0.14.0",
