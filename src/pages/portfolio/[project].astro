@@ -4,8 +4,10 @@ import LinkBtn from '@/components/ui/link-arrow';
 import { projects } from '@/data/projects';
 import { sluglify } from '@/lib/slugify';
 import Layout from '@/layouts/Layout.astro';
-import { Image } from 'astro:assets';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import PrevProjectBtn from './components/PrevProjectBtn.astro';
+import NextProjectBtn from './components/NextProjectBtn.astro';
+import GoBackBtn from './components/GoBackBtn.astro';
+import ProjectImage from './components/ProjectImage.astro';
 
 export function getStaticPaths() {
   const projectsTitles = projects.map(({ title }) => title);
@@ -24,62 +26,34 @@ const { title, description, demoUrl, img } = projects[projectIndex];
 ---
 
 <Layout title={title} description={description}>
-  <section class="w-full overflow-x-hidden py-5">
-    <a
-      href={sluglify(
-        projectIndex === 0
-          ? projects[projects.length - 1]?.title || ''
-          : projects[projectIndex - 1]?.title || ''
-      )}
-      class="fixed left-0 top-1/2 z-50 flex h-32 -translate-y-1/2 items-center rounded-r-full bg-foreground text-background opacity-50 duration-300 hover:opacity-100"
-      ><ArrowLeft /></a
-    >
-    <MaxWidthWrapper className="relative space-y-5">
-      <LinkBtn href="/portfolio/" variant="link" arrowPosition="left">
-        go back
-      </LinkBtn>
+  <section class="w-full overflow-x-hidden py-7">
+    <PrevProjectBtn projectIndex={projectIndex} />
+    <MaxWidthWrapper className="flex h-full flex-col justify-center space-y-5">
+      <GoBackBtn href="/portfolio" />
       <div
-        class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-        <div class="slide-in-left flex flex-col justify-center space-y-4">
-          <div class="space-y-2">
-            <h1
-              class="pl-5 text-3xl font-bold capitalize tracking-tighter sm:pl-0 sm:text-5xl">
-              {title}
-            </h1>
-            <p
-              class="0 max-w-[600px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {description}
-            </p>
-            <LinkBtn
-              href={demoUrl}
-              size="lg"
-              arrowPosition="right"
-              target="_blank">
-              See Demo
-            </LinkBtn>
-          </div>
+        class="flex h-full flex-col items-center justify-around gap-5 lg:h-min lg:flex-row">
+        <div
+          class="slide-in-left flex h-full flex-col items-start justify-center space-y-4">
+          <h1
+            class="text-4xl font-bold capitalize tracking-tighter text-primary sm:text-5xl xl:text-6xl">
+            {title}
+          </h1>
+          <p
+            class="max-w-[600px] text-muted-foreground md:text-xl/relaxed xl:text-xl/relaxed">
+            {description}
+          </p>
+          <LinkBtn
+            href={demoUrl}
+            size="lg"
+            arrowPosition="right"
+            target="_blank">
+            See Demo
+          </LinkBtn>
         </div>
-        <div class="slide-in-right order-first lg:order-last">
-          <Image
-            transition:name={title}
-            src={img}
-            width="550"
-            height="310"
-            alt="About"
-            class="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-top shadow-md shadow-secondary sm:w-full"
-          />
-        </div>
+        <ProjectImage img={img} />
       </div>
     </MaxWidthWrapper>
-    <a
-      href={sluglify(
-        projectIndex === projects.length - 1
-          ? projects[0]?.title || ''
-          : projects[projectIndex + 1]?.title || ''
-      )}
-      class="fixed right-0 top-1/2 z-50 flex h-32 -translate-y-1/2 items-center rounded-l-full bg-foreground text-background opacity-50 duration-300 hover:opacity-100"
-      ><ArrowRight /></a
-    >
+    <NextProjectBtn projectIndex={projectIndex} />
   </section>
 </Layout>
 

@@ -17,12 +17,12 @@ export const Projects = () => {
   }, []);
   return (
     <div className="grid pb-5 lg:grid-cols-[1fr_400px]">
-      <div className="group relative hidden aspect-video h-[300px] lg:block">
+      <div className="group relative left-12 hidden aspect-video h-[300px] lg:block">
         {projects.map(({ title, previewImg }, id) => (
           <a
             key={title}
             href={`/portfolio/${sluglify(title)}`}
-            className="absolute inset-0 lg:block"
+            className="absolute -inset-14 lg:block"
           >
             <img
               key={previewImg}
@@ -38,7 +38,7 @@ export const Projects = () => {
             />
           </a>
         ))}
-        <span className="absolute inset-0 rounded-xl bg-card opacity-0 duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:opacity-100" />
+        <span className="absolute -inset-14 rounded-xl bg-popover opacity-0 duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:opacity-100" />
       </div>
 
       <div className="mx-auto flex w-[min(100%,400px)] flex-col gap-1">

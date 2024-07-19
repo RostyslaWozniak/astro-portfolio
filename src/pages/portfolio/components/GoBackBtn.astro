@@ -1,0 +1,14 @@
+---
+import { ArrowUpLeft } from 'lucide-react';
+
+export type Props = {
+  href: string;
+};
+const { href } = Astro.props;
+---
+
+<a href={href} class="group absolute left-2 top-3 flex shadow-none lg:static">
+  <ArrowUpLeft
+    className="duration-300 group-hover:-translate-x-1 group-hover:-translate-y-1"
+  /> go back
+</a>

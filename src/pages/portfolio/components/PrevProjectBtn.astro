@@ -1,0 +1,20 @@
+---
+import { projects } from '@/data/projects';
+import { sluglify } from '@/lib/slugify';
+import { ArrowLeft } from 'lucide-react';
+
+export type Props = {
+  projectIndex: number;
+};
+const { projectIndex } = Astro.props;
+---
+
+<a
+  href={sluglify(
+    projectIndex === 0
+      ? projects[projects.length - 1]?.title || ''
+      : projects[projectIndex - 1]?.title || ''
+  )}
+  class="fixed left-0 top-1/2 z-50 flex h-32 -translate-y-1/2 items-center rounded-r-full bg-foreground text-background opacity-30 duration-300 hover:opacity-100"
+  ><ArrowLeft /></a
+>

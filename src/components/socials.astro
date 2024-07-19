@@ -35,7 +35,7 @@ const { className } = Astro.props;
   {
     socials.map(({ name, url, icon: Icon }) => (
       <a href={url} target="_blank">
-        <Icon className="cursor-pointer hover:opacity-70 duration-500" />
+        <Icon className="cursor-pointer hover:opacity-70 duration-500 " />
         <span class="sr-only">{name}</span>
       </a>
     ))

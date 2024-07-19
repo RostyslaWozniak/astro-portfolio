@@ -6,7 +6,7 @@ import { buttonVariants } from '@/components/ui/button';
 import LinkBtn from '@/components/ui/link-arrow';
 import { ArrowDown } from 'lucide-react';
 
-const pageTitle = 'Home';
+const pageTitle = 'Rostyslav Vozniak';
 ---
 
 <Layout title={pageTitle} description={`${pageTitle} page`}>
@@ -35,11 +35,11 @@ const pageTitle = 'Home';
             My Portfolio
           </LinkBtn>
           <a
-            href="/imgs/resume.pdf"
+            href="/resume.pdf"
             download="resume.pdf"
             class:list={[
               buttonVariants({ variant: 'outline', size: 'lg' }),
-              'group relative hover:bg-card',
+              'group relative border-0 hover:bg-card',
             ]}>
             <div class="relative mr-3 w-6">
               <ArrowDown
