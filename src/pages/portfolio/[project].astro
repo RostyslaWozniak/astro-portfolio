@@ -7,7 +7,7 @@ import Layout from '@/layouts/Layout.astro';
 import PrevProjectBtn from './components/PrevProjectBtn.astro';
 import NextProjectBtn from './components/NextProjectBtn.astro';
 import GoBackBtn from './components/GoBackBtn.astro';
-import ProjectImage from './components/ProjectImage.astro';
+import { Image } from 'astro:assets';
 
 export function getStaticPaths() {
   const projectsTitles = projects.map(({ title }) => title);
@@ -50,7 +50,15 @@ const { title, description, demoUrl, img } = projects[projectIndex];
             See Demo
           </LinkBtn>
         </div>
-        <ProjectImage img={img} />
+        <div class="slide-in-right order-first max-w-[600px] lg:order-last">
+          <Image
+            src={img}
+            width="550"
+            height="310"
+            alt="About"
+            class="mx-auto aspect-square h-full overflow-hidden rounded-xl object-cover object-top opacity-70 duration-1000 hover:opacity-100 sm:w-full"
+          />
+        </div>
       </div>
     </MaxWidthWrapper>
     <NextProjectBtn projectIndex={projectIndex} />

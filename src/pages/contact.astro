@@ -2,9 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import FaceImg from '@/components/face-img.astro';
-import Socials from '@/components/socials.astro';
 import { contact } from '@/data/contact';
-import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
 const pageTitle = 'Contact';
 ---
@@ -27,8 +25,6 @@ const pageTitle = 'Contact';
             Are You Interested In Collaboration?<br /> Let's Get In Touch!
           </p>
         </div>
-
-        <!-- <Socials className="lg:scale-150" /> -->
         <div class="w-min space-y-5">
           {
             contact.map(({ title, link, icon: Icon }) => (
