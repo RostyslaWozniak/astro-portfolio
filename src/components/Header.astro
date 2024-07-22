@@ -2,6 +2,7 @@
 import { cn } from '@/lib/utils';
 import MaxWidthWrapper from './MaxWidthWrapper.astro';
 import { ModeToggle } from '@/components/ModeToggle';
+import Logo from './ui/logo.astro';
 const pages = [
   { name: 'about', path: '/about/' },
   { name: 'portfolio', path: '/portfolio/' },
@@ -15,31 +16,23 @@ const pages = [
     <div class="flex h-14 items-center justify-between">
       <a
         href="/"
-        class="flex items-center font-[Quicksand] text-3xl font-semibold">RW</a
+        class="flex h-full items-center py-2 font-[Quicksand] text-3xl font-semibold"
+        ><Logo /></a
       >
       <nav>
-        <ul class="flex gap-4">
+        <ul class="flex translate-y-0.5 gap-4 lg:gap-6">
           {
             pages.map(({ name, path }) => (
               <li
                 class={cn(
-                  'group flex flex-col items-start text-sm font-medium capitalize transition-colors',
+                  'group flex flex-col items-start border-b-2 border-b-transparent text-sm font-semibold capitalize transition-colors lg:text-base',
                   {
-                    'hidden lg:flex': name === 'contact',
+                    'border-b-primary':
+                      Astro.url.pathname.replace(/\/$/, '') ===
+                      path.replace(/\/$/, ''),
                   }
                 )}>
                 <a href={path}>{name}</a>
-                {/* underline */}
-                <span
-                  class:list={cn(
-                    'h-0.5 w-0 rounded-full bg-foreground duration-500 group-hover:w-full',
-                    {
-                      'w-1/2':
-                        Astro.url.pathname.replace(/\/$/, '') ===
-                        path.replace(/\/$/, ''),
-                    }
-                  )}
-                />
               </li>
             ))
           }

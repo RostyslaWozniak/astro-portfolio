@@ -16,13 +16,13 @@ export const Projects = () => {
     }
   }, []);
   return (
-    <div className="grid pb-5 lg:grid-cols-[1fr_400px]">
-      <div className="group relative left-12 hidden aspect-video h-[300px] lg:block">
+    <div className="grid pb-5 xl:grid-cols-[1fr_400px]">
+      <div className="group relative left-12 hidden aspect-video h-[300px] xl:block">
         {projects.map(({ title, previewImg }, id) => (
           <a
             key={title}
             href={`/portfolio/${sluglify(title)}`}
-            className="absolute -inset-14 lg:block"
+            className="absolute -inset-14"
           >
             <img
               key={previewImg}

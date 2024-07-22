@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper.astro';
 import FaceImg from '@/components/face-img.astro';
 import Socials from '@/components/socials.astro';
+import { contact } from '@/data/contact';
+import { cn } from '@/lib/utils';
+import { ArrowUpRight } from 'lucide-react';
 const pageTitle = 'Contact';
 ---
 
@@ -12,19 +15,36 @@ const pageTitle = 'Contact';
       className="grid place-items-center items-center lg:grid-cols-[500px_1fr] lg:px-32">
       <FaceImg />
 
-      <div class="slide-in-right w-[min(400px,100%)] space-y-4 sm:w-[400px]">
+      <div
+        class="slide-in-right flex w-[min(400px,100%)] flex-col items-center space-y-4 sm:w-[400px]">
         <div
           class="flex flex-col items-center justify-center space-y-2 text-center">
           <h1
             class="text-4xl font-bold tracking-tighter text-primary sm:text-5xl xl:text-6xl">
             Contact
           </h1>
-          <p class="max-w-[600px] text-muted-foreground sm:text-xl">
+          <p class="max-w-[600px] text-foreground sm:text-xl">
             Are You Interested In Collaboration?<br /> Let's Get In Touch!
           </p>
         </div>
 
-        <Socials className="lg:scale-150" />
+        <!-- <Socials className="lg:scale-150" /> -->
+        <div class="w-min space-y-5">
+          {
+            contact.map(({ title, link, icon: Icon }) => (
+              <a
+                href={link}
+                target="_blank"
+                class="group relative flex w-min items-center gap-5 text-2xl tracking-widest">
+                <Icon size="40" />
+
+                <span class="group-hover:underline">{title}</span>
+
+                <ArrowUpRight className="absolute -right-7 -translate-x-0.5 translate-y-0.5 duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            ))
+          }
+        </div>
       </div>
     </MaxWidthWrapper>
   </section>
