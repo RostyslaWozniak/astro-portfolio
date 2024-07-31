@@ -43,7 +43,7 @@ export const projects = [
     title: "My Website",
     img: "/projects/demo/my-website.png",
     demoUrl: "https://rostyslavvozniak.com/",
-    previewImg: "/projects/demo/my-website.png",
+    previewImg: "/projects/preview/my-website-1.jpg",
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus itaque a rerum numquam alias saepe vel odit atque voluptas eveniet amet repellendus cum, voluptatem quidem assumenda corrupti, tenetur neque enim.",
   },
