@@ -1,0 +1,27 @@
+---
+import Layout from '@/layouts/Layout.astro';
+---
+
+<Layout title="Case Study" description="Case Study page">
+  <div
+    class="flex w-full flex-col items-center justify-center gap-8 px-4 md:px-6">
+    <div class="space-y-2 text-center">
+      <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+        Case Study
+      </h1>
+      <p class="max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+        In this video I show you how to implement email tracking and automated
+        follow-up functionality in your CRM application.
+      </p>
+    </div>
+    <div
+      class="aspect-video w-full max-w-4xl overflow-hidden rounded-lg bg-black">
+      <video controls controlslist="nodownload" class="h-full w-full">
+        <source
+          src="https://utfs.io/f/5d82f9b2-32aa-484b-acda-8b504ca443a2-ys302c.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+</Layout>
