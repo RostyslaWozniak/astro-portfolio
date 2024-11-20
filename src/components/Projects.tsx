@@ -1,5 +1,4 @@
 import { projects } from "@/data/projects";
-import { sluglify } from "@/lib/slugify";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 
@@ -10,7 +9,7 @@ export const Projects = () => {
     localStorage.setItem("activeId", id.toString());
   };
   useEffect(() => {
-    const activeId = localStorage.getItem("activeId");
+    const activeId = localStorage.getItem("activeId") ?? "0";
     if (activeId) {
       setActiveId(Number(activeId));
     }
@@ -18,10 +17,11 @@ export const Projects = () => {
   return (
     <div className="grid pb-5 xl:grid-cols-[1fr_400px]">
       <div className="group relative left-12 hidden aspect-video h-[300px] xl:block">
-        {projects.map(({ title, previewImg }, id) => (
+        {projects.map(({ title, previewImg, demoUrl }, id) => (
           <a
+            target="_blank"
             key={title}
-            href={`/portfolio/${sluglify(title)}`}
+            href={demoUrl}
             className="absolute -inset-14"
           >
             <img
@@ -42,15 +42,16 @@ export const Projects = () => {
       </div>
 
       <div className="mx-auto flex w-[min(100%,400px)] flex-col gap-1">
-        {projects.map(({ title }, id) => (
+        {projects.map(({ title, demoUrl }, id) => (
           <a
+            target="_blank"
             className={cn(
               "flex h-12 w-full items-center gap-4 border-b-2 text-3xl font-bold capitalize duration-500",
               {
                 "scale-110 bg-card": id === activeId,
               },
             )}
-            href={`/portfolio/${sluglify(title)}`}
+            href={demoUrl}
             key={title}
             onMouseOver={() => handleMouseOver(id)}
           >
